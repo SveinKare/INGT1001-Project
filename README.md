@@ -1,2 +1,5 @@
 # INGT1001-Project
 This repository contains the two files used to make a chess-robot using EV3 Lego Mindstorm hardware. The robot is operated from the ChessClient.py file, which creates an SSH terminal via bluetooth to send commands to the brick. The commands are strings formatted using a self-defined protocol where the first two symbols designate the square to move from, the next two symbols are the square to move to, and the last two symbols describe whether the move is of a special type (capture, passant capture, castle etc.). The main.py file is run by the brick. 
+
+Note regarding the ChessClient:
+The client currently is not able to handle promotions properly. The code runs into an exception due to the user move being fed directly into stockfish, when it should be modified first. I was not able to fix this due to time constraints, but the fix is essentially just altering the string being passed as an argument to the "check_move"-function, then stripping the last letter off before modifying it again.
